@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33927.249
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGT.Exercise.App", "TGT.Exercise\TGT.Exercise.App.csproj", "{DDA484AC-5DC8-40E4-B094-04B4A43D1E07}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGT.Exercise.Service", "TGT.Exercise.Service\TGT.Exercise.Service.csproj", "{22BE8B55-3C5E-4413-8143-030A186F4D14}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TGT.Exercise.App", "TGT.Exercise.App\TGT.Exercise.App.csproj", "{A21E6F76-CF6F-464B-8F87-0CB432DB1804}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DDA484AC-5DC8-40E4-B094-04B4A43D1E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDA484AC-5DC8-40E4-B094-04B4A43D1E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDA484AC-5DC8-40E4-B094-04B4A43D1E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDA484AC-5DC8-40E4-B094-04B4A43D1E07}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22BE8B55-3C5E-4413-8143-030A186F4D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22BE8B55-3C5E-4413-8143-030A186F4D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22BE8B55-3C5E-4413-8143-030A186F4D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22BE8B55-3C5E-4413-8143-030A186F4D14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21E6F76-CF6F-464B-8F87-0CB432DB1804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21E6F76-CF6F-464B-8F87-0CB432DB1804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21E6F76-CF6F-464B-8F87-0CB432DB1804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21E6F76-CF6F-464B-8F87-0CB432DB1804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
