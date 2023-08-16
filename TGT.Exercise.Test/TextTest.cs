@@ -23,5 +23,25 @@ namespace TGT.Exercise.Test
 
             Assert.Equal(3, wordCount);
         }
+
+        [Fact]
+        public void FindTheLongestWord()
+        {
+            string input = "lorem ipsum longestword dolor";
+
+            string longestWord = "longestword";
+
+            Assert.Equal("longestword", longestWord);
+        }
+
+        [Fact]
+        public void FindTheShortestWord()
+        {
+            string input = "lorem ipsum no dolor";
+
+            string shortestWord = "no";
+
+            Assert.Equal("no", shortestWord);
+        }
     }
 }
