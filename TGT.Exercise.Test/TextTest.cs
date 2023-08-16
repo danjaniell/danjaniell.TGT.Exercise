@@ -4,44 +4,66 @@ namespace TGT.Exercise.Test
 {
     public class TextTest
     {
-        [Fact]
-        public void TotalCharacterCountFromInputIsCorrectTest()
+        public class TextServiceTests
         {
-            string input = "lorem ipsum dolor";
+            [Theory]
+            [InlineData("This is a test", 11)]
+            [InlineData("", 0)]
+            [InlineData("  ", 0)]
+            [InlineData("Word", 4)]
+            public void CountNonWhitespaceCharacters_ShouldReturnCorrectCount(string input, int expectedCount)
+            {
+                int count = TextService.CountNonWhitespaceCharacters(input);
+                Assert.Equal(expectedCount, count);
+            }
 
-            int charCount = TextService.CountNonWhitespaceCharacters(input);
+            [Theory]
+            [InlineData("This is a test", 4)]
+            [InlineData("", 0)]
+            [InlineData("  ", 0)]
+            [InlineData("Word", 1)]
+            [InlineData("   word with spaces  ", 3)]
+            public void CountWords_ShouldReturnCorrectCount(string input, int expectedCount)
+            {
+                int count = TextService.CountWords(input);
+                Assert.Equal(expectedCount, count);
+            }
 
-            Assert.Equal(15, charCount);
-        }
+            [Theory]
+            [InlineData("This is a test", "This,test,is,a")]
+            [InlineData("", "")]
+            [InlineData("  ", "")]
+            [InlineData("Word", "Word")]
+            [InlineData("   word with spaces  ", "spaces,word,with")]
+            public void GetLongestWords_ShouldReturnCorrectResult(string input, string expectedWords)
+            {
+                string result = string.Empty;
+                TextService textService = new();
 
-        [Fact]
-        public void TotalWordCountFromInputIsCorrectTest()
-        {
-            string input = "lorem ipsum dolor";
+                foreach (string word in input.Trim().Split(' '))
+                {
+                    result = textService.GetLongestWords(word);
+                }
+                Assert.Equal(expectedWords, result);
+            }
 
-            int wordCount = TextService.CountWords(input);
+            [Theory]
+            [InlineData("This is a test", "a,is,This,test")]
+            [InlineData("", "")]
+            [InlineData("  ", "")]
+            [InlineData("Word", "Word")]
+            [InlineData("   word with spaces  ", "word,with,spaces")]
+            public void GetShortestWords_ShouldReturnCorrectResult(string input, string expectedWords)
+            {
+                string result = string.Empty;
+                TextService textService = new();
 
-            Assert.Equal(3, wordCount);
-        }
-
-        [Fact]
-        public void FindTheLongestWordTest()
-        {
-            string input = "lorem ipsum longestword dolor";
-
-            string longestWord = TextService.FindTheLongestWord(input);
-
-            Assert.Equal("longestword", longestWord);
-        }
-
-        [Fact]
-        public void FindTheShortestWordTest()
-        {
-            string input = "lorem ipsum no dolor";
-
-            string shortestWord = "no";
-
-            Assert.Equal("no", shortestWord);
+                foreach (string word in input.Trim().Split(' '))
+                {
+                    result = textService.GetShortestWords(word);
+                }
+                Assert.Equal(expectedWords, result);
+            }
         }
     }
 }
