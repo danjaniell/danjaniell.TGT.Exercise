@@ -9,14 +9,14 @@ namespace TGT.Exercise.App
             int totalCharacters = 0;
             int totalWords = 0;
             IAsyncEnumerable<string> streamData = ReadStreamService.Read();
-            TextService textService = new();
+            WordLengthService wordLengthService = new();
 
             foreach (string data in streamData.ToEnumerable())
             {
-                Console.WriteLine($"Total Characters(No whitespace): {totalCharacters += TextService.CountNonWhitespaceCharacters(data)}");
-                Console.WriteLine($"Total Words: {totalWords += TextService.CountWords(data)}");
-                Console.WriteLine($"Current Longest Words: {textService.GetLongestWords(data)}");
-                Console.WriteLine($"Current Shortest Words: {textService.GetShortestWords(data)}");
+                Console.WriteLine($"Total Characters(No whitespace): {totalCharacters += WordCountService.CountNonWhitespaceCharacters(data)}");
+                Console.WriteLine($"Total Words: {totalWords += WordCountService.CountWords(data)}");
+                Console.WriteLine($"Current Longest Words: {wordLengthService.GetLongestWords(data)}");
+                Console.WriteLine($"Current Shortest Words: {wordLengthService.GetShortestWords(data)}");
 
                 Thread.Sleep(300);
                 Console.Clear();

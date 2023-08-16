@@ -1,8 +1,6 @@
-﻿using NLipsum.Core;
-
-namespace TGT.Exercise.Service
+﻿namespace TGT.Exercise.Service
 {
-    public class TextService
+    public class WordLengthService
     {
         public List<string> LongestWords { get; set; } = new List<string>();
         public List<string> ShortestWords { get; set; } = new List<string>();
@@ -10,7 +8,7 @@ namespace TGT.Exercise.Service
         private void FindTheLongestWords(string input, int size = 5)
         {
             if (string.IsNullOrWhiteSpace(input)) { return; }
-            if(LongestWords.Contains(input)) { return; }
+            if (LongestWords.Contains(input)) { return; }
 
             LongestWords.Add(input);
             LongestWords = LongestWords.OrderByDescending(x => x.Length).ToList();
@@ -45,45 +43,5 @@ namespace TGT.Exercise.Service
             return string.Join(',', ShortestWords);
         }
 
-        public static int CountNonWhitespaceCharacters(string input)
-        {
-            int count = 0;
-
-            foreach (char c in input)
-            {
-                if (!char.IsWhiteSpace(c))
-                {
-                    count++;
-                }
-            }
-
-            return count;
-        }
-
-        public static int CountWords(string input)
-        {
-            int count = 0;
-            bool inWord = false;
-
-            for (int i = 0; i < input.Length; i++)
-            {
-                char c = input[i];
-
-                if (!char.IsWhiteSpace(c))
-                {
-                    if (!inWord)
-                    {
-                        count++;
-                        inWord = true;
-                    }
-                }
-                else
-                {
-                    inWord = false;
-                }
-            }
-
-            return count;
-        }
     }
 }

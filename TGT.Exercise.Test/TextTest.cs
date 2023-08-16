@@ -13,7 +13,7 @@ namespace TGT.Exercise.Test
             [InlineData("Word", 4)]
             public void CountNonWhitespaceCharacters_ShouldReturnCorrectCount(string input, int expectedCount)
             {
-                int count = TextService.CountNonWhitespaceCharacters(input);
+                int count = WordCountService.CountNonWhitespaceCharacters(input);
                 Assert.Equal(expectedCount, count);
             }
 
@@ -25,7 +25,7 @@ namespace TGT.Exercise.Test
             [InlineData("   word with spaces  ", 3)]
             public void CountWords_ShouldReturnCorrectCount(string input, int expectedCount)
             {
-                int count = TextService.CountWords(input);
+                int count = WordCountService.CountWords(input);
                 Assert.Equal(expectedCount, count);
             }
 
@@ -38,11 +38,11 @@ namespace TGT.Exercise.Test
             public void GetLongestWords_ShouldReturnCorrectResult(string input, string expectedWords)
             {
                 string result = string.Empty;
-                TextService textService = new();
+                WordLengthService wordLengthService = new();
 
                 foreach (string word in input.Trim().Split(' '))
                 {
-                    result = textService.GetLongestWords(word);
+                    result = wordLengthService.GetLongestWords(word);
                 }
                 Assert.Equal(expectedWords, result);
             }
@@ -56,11 +56,11 @@ namespace TGT.Exercise.Test
             public void GetShortestWords_ShouldReturnCorrectResult(string input, string expectedWords)
             {
                 string result = string.Empty;
-                TextService textService = new();
+                WordLengthService wordLengthService = new();
 
                 foreach (string word in input.Trim().Split(' '))
                 {
-                    result = textService.GetShortestWords(word);
+                    result = wordLengthService.GetShortestWords(word);
                 }
                 Assert.Equal(expectedWords, result);
             }
