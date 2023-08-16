@@ -10,6 +10,7 @@ namespace TGT.Exercise.App
             int totalWords = 0;
             IAsyncEnumerable<string> streamData = ReadStreamService.Read();
             WordLengthService wordLengthService = new();
+            FrequencyCounterService frequencyCounterService = new();
 
             foreach (string data in streamData.ToEnumerable())
             {
@@ -17,6 +18,7 @@ namespace TGT.Exercise.App
                 Console.WriteLine($"Total Words: {totalWords += WordCountService.CountWords(data)}");
                 Console.WriteLine($"Current Longest Words: {wordLengthService.GetLongestWords(data)}");
                 Console.WriteLine($"Current Shortest Words: {wordLengthService.GetShortestWords(data)}");
+                Console.WriteLine($"Most Frequent Words: {frequencyCounterService.GetMostFrequentWords(data)}");
 
                 Thread.Sleep(300);
                 Console.Clear();
