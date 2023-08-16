@@ -6,11 +6,17 @@ namespace TGT.Exercise.App
     {
         public static void Main(string[] args)
         {
-            int i = 1;
+            int totalCharacters = 0;
+            int totalWords = 0;
             IAsyncEnumerable<string> streamData = ReadStreamService.Read();
+
             foreach (string data in streamData.ToEnumerable())
             {
-                Console.WriteLine($"{i++} - {data}");
+                Console.WriteLine($"Total Characters(No whitespace): {totalCharacters += TextService.CountNonWhitespaceCharacters(data)}");
+                Console.WriteLine($"Total Words: {totalWords += TextService.CountWords(data)}");
+
+                Thread.Sleep(300);
+                Console.Clear();
             }
         }
     }
