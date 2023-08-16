@@ -1,47 +1,26 @@
-﻿namespace TGT.Exercise.Service
+﻿using TGT.Exercise.Service.Interface;
+using TGT.Exercise.Service.Strategy;
+
+namespace TGT.Exercise.Service
 {
     public class WordLengthService
     {
-        public List<string> LongestWords { get; set; } = new List<string>();
-        public List<string> ShortestWords { get; set; } = new List<string>();
+        private List<string> _longestWords = new();
+        private List<string> _shortestWords = new();
 
-        private void FindTheLongestWords(string input, int size = 5)
-        {
-            if (string.IsNullOrWhiteSpace(input)) { return; }
-            if (LongestWords.Contains(input)) { return; }
-
-            LongestWords.Add(input);
-            LongestWords = LongestWords.OrderByDescending(x => x.Length).ToList();
-            if (LongestWords.Count > size)
-            {
-                LongestWords.RemoveAt(5);
-            }
-        }
+        private IWordFindingStrategy _longestWordStrategy = new LongestWordFindingStrategy();
+        private IWordFindingStrategy _shortestWordStrategy = new ShortestWordFindingStrategy();
 
         public string GetLongestWords(string input)
         {
-            FindTheLongestWords(input.Trim());
-            return string.Join(',', LongestWords);
-        }
-
-        private void FindTheShortestWords(string input, int size = 5)
-        {
-            if (string.IsNullOrWhiteSpace(input)) { return; }
-            if (ShortestWords.Contains(input)) { return; }
-
-            ShortestWords.Add(input);
-            ShortestWords = ShortestWords.OrderBy(x => x.Length).ToList();
-            if (ShortestWords.Count > size)
-            {
-                ShortestWords.RemoveAt(5);
-            }
+            _longestWords = _longestWordStrategy.FindWords(_longestWords, input.Trim());
+            return string.Join(',', _longestWords);
         }
 
         public string GetShortestWords(string input)
         {
-            FindTheShortestWords(input.Trim());
-            return string.Join(',', ShortestWords);
+            _shortestWords = _shortestWordStrategy.FindWords(_shortestWords, input.Trim());
+            return string.Join(',', _shortestWords);
         }
-
     }
 }
