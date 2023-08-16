@@ -54,5 +54,15 @@ namespace TGT.Exercise.Test
 
             Assert.Equal("apple", result);
         }
+
+        [Fact]
+        public void GetCharacterFrequencies_ShouldReturnCharacterFrequencies()
+        {
+            var characterFrequencyAnalyzer = new FrequencyCounterService();
+
+            string result = characterFrequencyAnalyzer.GetCharacterFrequencies("hello world");
+
+            Assert.Equal("[l, 3],[o, 2],[h, 1],[e, 1],[ , 1],[w, 1],[r, 1],[d, 1]", result);
+        }
     }
 }

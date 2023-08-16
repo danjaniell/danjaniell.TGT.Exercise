@@ -19,6 +19,7 @@ namespace TGT.Exercise.App
                 Console.WriteLine($"Current Longest Words: {wordLengthService.GetLongestWords(data)}");
                 Console.WriteLine($"Current Shortest Words: {wordLengthService.GetShortestWords(data)}");
                 Console.WriteLine($"Most Frequent Words: {frequencyCounterService.GetMostFrequentWords(data)}");
+                Console.WriteLine($"Most Frequent Characters: {frequencyCounterService.GetCharacterFrequencies(data)}");
 
                 Thread.Sleep(300);
                 Console.Clear();

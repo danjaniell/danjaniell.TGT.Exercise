@@ -1,10 +1,13 @@
-﻿namespace TGT.Exercise.Service
+﻿using System.Linq;
+
+namespace TGT.Exercise.Service
 {
     public class FrequencyCounterService
     {
         private readonly Dictionary<string, int> _wordFrequency = new();
+        private readonly Dictionary<char, int> _characterFrequency = new Dictionary<char, int>();
 
-        private void ProcessNewString(string input)
+        private void CountWordFrequency(string input)
         {
             var words = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -15,6 +18,21 @@
                     _wordFrequency[word] = 0;
                 }
                 _wordFrequency[word]++;
+            }
+        }
+
+        private void CountCharacterFrequency(string input)
+        {
+            foreach (char c in input)
+            {
+                if (_characterFrequency.ContainsKey(c))
+                {
+                    _characterFrequency[c]++;
+                }
+                else
+                {
+                    _characterFrequency[c] = 1;
+                }
             }
         }
 
@@ -29,8 +47,21 @@
 
         public string GetMostFrequentWords(string input)
         {
-            ProcessNewString(input);
+            CountWordFrequency(input);
             return string.Join(',', GetMostFrequentWords());
+        }
+
+        private List<KeyValuePair<char, int>> GetCharacterFrequencies()
+        {
+            return _characterFrequency
+                .OrderByDescending(kv => kv.Value)
+                .ToList();
+        }
+
+        public string GetCharacterFrequencies(string input)
+        {
+            CountCharacterFrequency(input);
+            return string.Join(',', GetCharacterFrequencies());
         }
     }
 }
