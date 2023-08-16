@@ -14,6 +14,7 @@ namespace TGT.Exercise.App
             {
                 Console.WriteLine($"Total Characters(No whitespace): {totalCharacters += TextService.CountNonWhitespaceCharacters(data)}");
                 Console.WriteLine($"Total Words: {totalWords += TextService.CountWords(data)}");
+                Console.WriteLine($"Current Longest Word: {TextService.FindTheLongestWord(data)}");
 
                 Thread.Sleep(300);
                 Console.Clear();
