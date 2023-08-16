@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGT.Exercise.Service", "TGT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TGT.Exercise.App", "TGT.Exercise.App\TGT.Exercise.App.csproj", "{A21E6F76-CF6F-464B-8F87-0CB432DB1804}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGT.Exercise.Test", "TGT.Exercise.Test\TGT.Exercise.Test.csproj", "{E1EE96D9-3E40-4677-AE25-32F6930A91E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A21E6F76-CF6F-464B-8F87-0CB432DB1804}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A21E6F76-CF6F-464B-8F87-0CB432DB1804}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A21E6F76-CF6F-464B-8F87-0CB432DB1804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1EE96D9-3E40-4677-AE25-32F6930A91E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1EE96D9-3E40-4677-AE25-32F6930A91E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1EE96D9-3E40-4677-AE25-32F6930A91E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1EE96D9-3E40-4677-AE25-32F6930A91E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
