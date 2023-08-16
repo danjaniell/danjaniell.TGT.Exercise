@@ -2,6 +2,24 @@
 {
     public class TextService
     {
+        private static string _longestWord = string.Empty;
+
+        public static string FindTheLongestWord(string input)
+        {
+            var words = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            string newLongestWord = words
+                .OrderByDescending(word => word.Length)
+                .FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(newLongestWord) && newLongestWord.Length > _longestWord.Length)
+            {
+                _longestWord = newLongestWord;
+            }
+
+            return _longestWord;
+        }
+
         public static int CountNonWhitespaceCharacters(string input)
         {
             int count = 0;

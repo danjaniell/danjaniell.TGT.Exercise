@@ -5,7 +5,7 @@ namespace TGT.Exercise.Test
     public class TextTest
     {
         [Fact]
-        public void TotalCharacterCountFromInputIsCorrect()
+        public void TotalCharacterCountFromInputIsCorrectTest()
         {
             string input = "lorem ipsum dolor";
 
@@ -15,7 +15,7 @@ namespace TGT.Exercise.Test
         }
 
         [Fact]
-        public void TotalWordCountFromInputIsCorrect()
+        public void TotalWordCountFromInputIsCorrectTest()
         {
             string input = "lorem ipsum dolor";
 
@@ -25,17 +25,17 @@ namespace TGT.Exercise.Test
         }
 
         [Fact]
-        public void FindTheLongestWord()
+        public void FindTheLongestWordTest()
         {
             string input = "lorem ipsum longestword dolor";
 
-            string longestWord = "longestword";
+            string longestWord = TextService.FindTheLongestWord(input);
 
             Assert.Equal("longestword", longestWord);
         }
 
         [Fact]
-        public void FindTheShortestWord()
+        public void FindTheShortestWordTest()
         {
             string input = "lorem ipsum no dolor";
 
